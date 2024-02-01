@@ -1,0 +1,28 @@
+.general{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      position: absolute;
+      top: 50%;
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+      width: 100%;
+
+      a{
+            width: 150px;
+            height: 50px;
+            background-color: rgb(234, 234, 234);
+            color:black;
+            border-radius: 10px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &:hover{
+                  background-color: rgb(89, 89, 89);
+                  color: rgb(234, 234, 234);
+            }
+      }
+}
