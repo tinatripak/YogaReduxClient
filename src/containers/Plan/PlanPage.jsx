@@ -13,7 +13,7 @@ const Plan = () => {
 
   const fetchProducts = async () => {
     const response = await axios
-      .get("http://localhost:4000/plan/getPlans")
+      .get("https://yoga-redux.onrender.com/plan/getPlans")
       .catch((err) => {
         console.log("Err: ", err);
       });

@@ -15,14 +15,14 @@ const Video = () => {
 
   const fetchVideo = async () => {
     const videosResponse = await axios
-      .get("http://localhost:4000/video/getVideos")
+      .get("https://yoga-redux.onrender.com/video/getVideos")
       .catch((err) => {
         console.log("Err: ", err);
       });
       const videosWithInstructors = await Promise.all(
         videosResponse?.data?.data.map(async (video) => {
           const instId = video?.instructorId
-          const instructorResponse = await axios.get(`http://localhost:4000/instructor/getInstructorById/${instId}`);
+          const instructorResponse = await axios.get(`https://yoga-redux.onrender.com/instructor/getInstructorById/${instId}`);
 
           const instructorData = instructorResponse?.data?.data;
           const videoWithInstructor = {

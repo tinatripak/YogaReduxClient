@@ -13,7 +13,7 @@ const Instructor = () => {
 
   const fetchInstructor = async () => {
     const response = await axios
-      .get("http://localhost:4000/instructor/getInstructors")
+      .get("https://yoga-redux.onrender.com/instructor/getInstructors")
       .catch((err) => {
         console.log("Err: ", err);
       });

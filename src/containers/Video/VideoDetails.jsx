@@ -17,12 +17,12 @@ const VideoDetails = () => {
 
   const fetchVideoDetail = async (videoId) => {
     const response = await axios
-      .get(`http://localhost:4000/video/getVideoById/${videoId}`)
+      .get(`https://yoga-redux.onrender.com/video/getVideoById/${videoId}`)
       .catch((err) => {
         console.log("Err: ", err);
       });
     const instructorResponse = await axios
-      .get(`http://localhost:4000/instructor/getInstructorById/${instructorId}`)
+      .get(`https://yoga-redux.onrender.com/instructor/getInstructorById/${instructorId}`)
       .catch((err) => {
         console.log("Err: ", err);
       });

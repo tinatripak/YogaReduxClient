@@ -18,7 +18,7 @@ const PlanDetails = () => {
   const dispatch = useDispatch();
   const fetchPlanDetail = async (id) => {
     const response = await axios
-      .get(`http://localhost:4000/plan/getPlanById/${id}`)
+      .get(`https://yoga-redux.onrender.com/plan/getPlanById/${id}`)
       .catch((err) => {
         console.log("Err: ", err);
       });
