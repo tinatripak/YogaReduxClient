@@ -1,6 +1,11 @@
 import { combineReducers } from "redux";
-import { instructorReducer, plansReducer, selectedPlanReducer, videosReducer, selectedVideoReducer} from "./productsReducer";
-
+import {
+  instructorReducer,
+  plansReducer,
+  selectedPlanReducer,
+  videosReducer,
+  selectedVideoReducer,
+} from "./productsReducer";
 
 const reducers = combineReducers({
   instructor: instructorReducer,
@@ -8,7 +13,6 @@ const reducers = combineReducers({
   plan: selectedPlanReducer,
   allVideos: videosReducer,
   video: selectedVideoReducer,
-
 });
 
 export default reducers;

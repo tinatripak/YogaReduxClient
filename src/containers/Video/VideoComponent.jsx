@@ -8,7 +8,16 @@ const VideoComponent = () => {
     const { _id, name, instructorName, duration, level, video } = video_;
 
     return (
-      <div key={_id} style={{paddingTop: "4vh", margin: "0 auto", gap: "30px", paddingLeft: "2px", paddingRight: "2px" }}>
+      <div
+        key={_id}
+        style={{
+          paddingTop: "4vh",
+          margin: "0 auto",
+          gap: "30px",
+          paddingLeft: "2px",
+          paddingRight: "2px",
+        }}
+      >
         <Link to={`/video/${_id}`}>
           <div className="ui link cards">
             <div className="card">

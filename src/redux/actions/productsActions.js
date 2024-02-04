@@ -33,7 +33,6 @@ export const removeSelectedPlan = () => {
   };
 };
 
-
 export const setVideos = (allVideos) => {
   return {
     type: ActionTypes.SET_VIDEOS,

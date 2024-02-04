@@ -7,7 +7,7 @@ import VideoDetails from "./containers/Video/VideoDetails";
 import Video from "./containers/Video/Video";
 import General from "./containers/Genelar";
 import NoPage from "./containers/NoPage";
-import './App.scss'
+import "./App.scss";
 
 function App() {
   return (

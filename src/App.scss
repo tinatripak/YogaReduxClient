@@ -1,21 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lora&display=swap");
 
-.buttons{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-      button{
-            border: 0;
-            background-color: transparent;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Lora', serif;
-            font-size: 18px;
-      }
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  button {
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Lora", serif;
+    font-size: 18px;
+  }
 }
-.center-block{
-      margin: 0 auto;
+.center-block {
+  margin: 0 auto;
 }

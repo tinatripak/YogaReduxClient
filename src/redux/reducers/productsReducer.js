@@ -5,7 +5,10 @@ const intialState = {
   videos: [],
 };
 
-export const instructorReducer = (state = intialState.instructor, { type, payload }) => {
+export const instructorReducer = (
+  state = intialState.instructor,
+  { type, payload }
+) => {
   switch (type) {
     case ActionTypes.SET_INSTRUCTOR:
       return { ...state, instructor: payload };
@@ -34,7 +37,10 @@ export const selectedPlanReducer = (state = {}, { type, payload }) => {
   }
 };
 
-export const videosReducer = (state = intialState.videos, { type, payload }) => {
+export const videosReducer = (
+  state = intialState.videos,
+  { type, payload }
+) => {
   switch (type) {
     case ActionTypes.SET_VIDEOS:
       return { ...state, videos: payload };
