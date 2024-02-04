@@ -48,7 +48,7 @@ const VideoDetails = () => {
           <IoIosArrowBack size={30} /> Back
         </button>
       </div>
-      <div className="ui container" style={{ marginTop: "1vh" }}>
+      <div className="ui container" style={{ marginTop: "1vh", paddingTop: "6vh" }}>
         {Object.keys(video_).length === 0 ? (
           <div>...Loading</div>
         ) : (

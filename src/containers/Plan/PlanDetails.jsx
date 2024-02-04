@@ -38,7 +38,7 @@ const PlanDetails = () => {
           <IoIosArrowBack size={30}/> Back
         </button>
       </div>
-      <div className="ui grid container" style={{ marginTop: "1vh" }}>
+      <div className="ui grid container" style={{ marginTop: "1vh", paddingTop: "6vh"}}>
         {Object.keys(plan).length === 0 ? (
           <div>...Loading</div>
         ) : (

@@ -8,7 +8,7 @@ const PlanComponent = () => {
     const { _id, name, photo, description, price } = plan;
 
     return (
-      <div className="four wide column" key={_id} style={{ marginTop: "1vh" }}>
+      <div key={_id} style={{ paddingTop: "4vh", paddingLeft: "2px", paddingRight: "2px", margin: "0 auto" }}>
         <Link to={`/plan/${_id}`}>
           <div className="ui link cards">
             <div className="card">

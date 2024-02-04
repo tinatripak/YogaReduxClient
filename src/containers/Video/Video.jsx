@@ -23,7 +23,7 @@ const Video = () => {
         videosResponse?.data?.data.map(async (video) => {
           const instId = video?.instructorId
           const instructorResponse = await axios.get(`https://yoga-redux.onrender.com/instructor/getInstructorById/${instId}`);
-
+         
           const instructorData = instructorResponse?.data?.data;
           const videoWithInstructor = {
             ...video,
