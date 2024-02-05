@@ -11,33 +11,36 @@ import ConditionalRender from "../ConditionalRender/ConditionalRender";
 
 const PlanDetails = () => {
   const { planId } = useParams();
-  let plan = useSelector((state) => state.plan);
+  const plan = useSelector((state) => state.plan);
+  console.log(plan);
   const navigate = useNavigate();
-  const [isLoadedDetails, setIsLoadedDetails] = useState(false);
-
+  const [isLoadedPlanDetails, setIsLoadedPlanDetails] = useState(false);
   const { name, photo, description, price } = plan;
+
   const dispatch = useDispatch();
+
   const fetchPlanDetail = async (id) => {
     const response = await axios
       .get(`https://yoga-redux.onrender.com/plan/getPlanById/${id}`)
-      .then(() => {
-        setIsLoadedDetails(true);
-      })
       .catch((err) => {
         console.log("Err: ", err);
       });
     dispatch(selectedPlan(response.data.data));
+    setIsLoadedPlanDetails(true);
   };
 
   useEffect(() => {
     if (planId && planId !== "") fetchPlanDetail(planId);
+    setIsLoadedPlanDetails(true);
+
     return () => {
       dispatch(removeSelectedPlan());
     };
   }, [planId]);
+
   return (
     <ConditionalRender
-      conditions={[isLoadedDetails]}
+      conditions={[isLoadedPlanDetails]}
       content={
         <>
           <div className="buttons">

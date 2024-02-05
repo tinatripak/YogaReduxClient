@@ -5,6 +5,7 @@ import { setVideos } from "../../redux/actions/productsActions";
 import VideoComponent from "./VideoComponent";
 import { useNavigate } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
+import ConditionalRender from "../ConditionalRender/ConditionalRender";
 
 const Video = () => {
   useSelector((state) => state.allVideos.videos);
@@ -17,23 +18,16 @@ const Video = () => {
   const fetchVideo = async () => {
     const videosResponse = await axios
       .get("https://yoga-redux.onrender.com/video/getVideos")
-      .then(() => {
-        setIsLoadedVideo(true);
-      })
       .catch((err) => {
         console.log("Err: ", err);
       });
-
+    setIsLoadedVideo(true);
     const videosWithInstructors = await Promise.all(
       videosResponse?.data?.data.map(async (video) => {
         const instId = video?.instructorId;
-        const instructorResponse = await axios
-          .get(
-            `https://yoga-redux.onrender.com/instructor/getInstructorById/${instId}`
-          )
-          .then(() => {
-            setIsLoadedInstructor(true);
-          });
+        const instructorResponse = await axios.get(
+          `https://yoga-redux.onrender.com/instructor/getInstructorById/${instId}`
+        );
 
         const instructorData = instructorResponse?.data?.data;
         const videoWithInstructor = {
@@ -44,6 +38,7 @@ const Video = () => {
       })
     );
     dispatch(setVideos(videosWithInstructors));
+    setIsLoadedInstructor(true);
   };
 
   useEffect(() => {
@@ -52,7 +47,7 @@ const Video = () => {
 
   return (
     <ConditionalRender
-      conditions={[isLoadedVideo, isLoadedInstructor]}
+      conditions={[isLoadedInstructor, isLoadedVideo]}
       content={
         <>
           <div className="buttons">

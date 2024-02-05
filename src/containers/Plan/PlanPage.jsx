@@ -16,13 +16,11 @@ const Plan = () => {
   const fetchProducts = async () => {
     const response = await axios
       .get("https://yoga-redux.onrender.com/plan/getPlans")
-      .then(() => {
-        setIsLoadedPlan(true);
-      })
       .catch((err) => {
         console.log("Err: ", err);
       });
     dispatch(setPlans(response.data.data));
+    setIsLoadedPlan(true);
   };
 
   useEffect(() => {

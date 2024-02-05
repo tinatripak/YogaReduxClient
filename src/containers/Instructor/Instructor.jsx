@@ -16,13 +16,11 @@ const Instructor = () => {
   const fetchInstructor = async () => {
     const response = await axios
       .get("https://yoga-redux.onrender.com/instructor/getInstructors")
-      .then(() => {
-        setIsLoadedInstructor(true);
-      })
       .catch((err) => {
         console.log("Err: ", err);
       });
     dispatch(setInstructor(response.data.data));
+    setIsLoadedInstructor(true);
   };
 
   useEffect(() => {

@@ -7,43 +7,39 @@ import {
   removeSelectedVideo,
 } from "../../redux/actions/productsActions";
 import { IoIosArrowBack } from "react-icons/io";
+import ConditionalRender from "../ConditionalRender/ConditionalRender";
 
 const VideoDetails = () => {
   const { videoId } = useParams();
   let video_ = useSelector((state) => state.video);
-  const { name, instructorId, instructorName, duration, level, video } = video_;
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isLoadedDetails, setIsLoadedDetails] = useState(false);
   const [isLoadedInstructor, setIsLoadedInstructor] = useState(false);
+  const { name, instructorId, instructorName, duration, level, video } = video_;
+  const dispatch = useDispatch();
 
   const fetchVideoDetail = async (videoId) => {
     const response = await axios
       .get(`https://yoga-redux.onrender.com/video/getVideoById/${videoId}`)
-      .then(() => {
-        setIsLoadedDetails(true);
-      })
       .catch((err) => {
         console.log("Err: ", err);
       });
-
     const instructorResponse = await axios
       .get(
         `https://yoga-redux.onrender.com/instructor/getInstructorById/${instructorId}`
       )
-      .then(() => {
-        setIsLoadedInstructor(true);
-      })
       .catch((err) => {
         console.log("Err: ", err);
       });
-
     const instructorData = instructorResponse?.data?.data;
+
     const videoWithInstructor = {
       ...response?.data?.data,
       instructorName: instructorData?.name,
     };
     dispatch(selectedVideo(videoWithInstructor));
+    setIsLoadedInstructor(true);
+    setIsLoadedDetails(true);
   };
 
   useEffect(() => {
